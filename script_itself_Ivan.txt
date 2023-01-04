@@ -1,0 +1,34 @@
+Ecwid.OnPageLoaded.add(function() {
+		Ecwid.Cart.clear()
+		document.querySelector('.grid__description-inner :first-child').remove()
+		document.querySelector('.grid__description-inner').insertAdjacentHTML("afterbegin", "<table class = \'car_item\' style = \'background: url(https://papik.pro/uploads/posts/2021-09/1631514002_8-papik-pro-p-konturnii-risunok-mashina-12.png) center/cover no-repeat; cursor: pointer; width: 100%;\r\n height: 500px\'>\r\n  <tr>\r\n    <td id =\'front\' title = \'Капот\'></td>\r\n    <td id =\'glass\' title = \'Стекла\'></td>\r\n    <td id =\'back\' title = \'Багажник\'></td>\r\n  </tr>\r\n  <tr>\r\n    <td id = \'wheel_front\' title = \'Колесо\'></td>\r\n    <td id = \'doors\' title = \'Двери\'></td>\r\n    <td id = \'wheel_back\' title = \'Колесо\'></td>\r\n  </tr>\r\n</table>");
+        $('table td').css({'border': '2px solid #000000'})
+		$('#front').click(function(){		
+		Ecwid.Cart.addProduct(517854524);
+		});
+		$('#glass').click(function(){		
+		Ecwid.Cart.addProduct(503755465);
+		});
+		$('#back').click(function(){		
+		Ecwid.Cart.addProduct(514690757);     
+		});
+		$('#wheel_front').click(function(){		
+		Ecwid.Cart.addProduct(517842037);     
+		});
+		$('#wheel_back').click(function(){		
+		Ecwid.Cart.addProduct(517842037);     
+		});
+		$('#doors').click(function(){		
+		Ecwid.Cart.addProduct(517729504);   
+		})
+
+		Ecwid.OnCartChanged.add(function(cart){  
+			if(cart.items.length >= 5){
+			document.querySelector('.grid__description-inner :first-child').remove();
+			Ecwid.Cart.clear()
+			Ecwid.Cart.addProduct(513485739);
+			document.querySelector('.grid__description-inner').insertAdjacentHTML("afterbegin", "<h1 style = 'font-size: 40pt;'>Вы собрали автомобиль!</h1>");
+
+			};
+		});
+}); 
